@@ -97,7 +97,7 @@ ggplot.data.frame <- function(data, mapping=aes(), ..., environment = globalenv(
   if (!missing(mapping) && !inherits(mapping, "uneval")) stop("Mapping should be created with aes or aes_string")
 
   p <- structure(list(
-    data = data,
+    data = function() data,
     layers = list(),
     scales = Scales$new(),
     mapping = mapping,

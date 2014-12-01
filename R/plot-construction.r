@@ -80,7 +80,7 @@ add_ggplot <- function(p, object, objectname) {
 
   p <- plot_clone(p)
   if (is.data.frame(object)) {
-    p$data <- object
+    p$data <- function() object
   } else if (is.theme(object)) {
     p$theme <- update_theme(p$theme, object)
   } else if (inherits(object, "scale")) {
